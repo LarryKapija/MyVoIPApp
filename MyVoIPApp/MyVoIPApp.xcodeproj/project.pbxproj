@@ -17,6 +17,10 @@
 		633388992B5411D000B4E749 /* MyVoIPAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633388982B5411D000B4E749 /* MyVoIPAppTests.swift */; };
 		633388A32B5411D000B4E749 /* MyVoIPAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633388A22B5411D000B4E749 /* MyVoIPAppUITests.swift */; };
 		633388A52B5411D000B4E749 /* MyVoIPAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633388A42B5411D000B4E749 /* MyVoIPAppUITestsLaunchTests.swift */; };
+		6339B9B12B5422E400ACC97A /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 6339B9B02B5422E400ACC97A /* FirebaseDatabase */; };
+		6339B9B32B5422E400ACC97A /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6339B9B22B5422E400ACC97A /* FirebaseDatabaseSwift */; };
+		6339B9B52B5425FB00ACC97A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6339B9B42B5425FB00ACC97A /* GoogleService-Info.plist */; };
+		6339B9B72B54266C00ACC97A /* GoogleService-Info-Example.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6339B9B62B54266C00ACC97A /* GoogleService-Info-Example.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,8 @@
 		6333889E2B5411D000B4E749 /* MyVoIPAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyVoIPAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		633388A22B5411D000B4E749 /* MyVoIPAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVoIPAppUITests.swift; sourceTree = "<group>"; };
 		633388A42B5411D000B4E749 /* MyVoIPAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVoIPAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6339B9B42B5425FB00ACC97A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6339B9B62B54266C00ACC97A /* GoogleService-Info-Example.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Example.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6339B9B32B5422E400ACC97A /* FirebaseDatabaseSwift in Frameworks */,
+				6339B9B12B5422E400ACC97A /* FirebaseDatabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +109,8 @@
 		6333887D2B5411CF00B4E749 /* MyVoIPApp */ = {
 			isa = PBXGroup;
 			children = (
+				6339B9B62B54266C00ACC97A /* GoogleService-Info-Example.plist */,
+				6339B9B42B5425FB00ACC97A /* GoogleService-Info.plist */,
 				633388B92B54136900B4E749 /* Resources */,
 				633388B82B54135B00B4E749 /* Networking */,
 				633388B72B54134D00B4E749 /* Utilities */,
@@ -298,6 +308,10 @@
 			dependencies = (
 			);
 			name = MyVoIPApp;
+			packageProductDependencies = (
+				6339B9B02B5422E400ACC97A /* FirebaseDatabase */,
+				6339B9B22B5422E400ACC97A /* FirebaseDatabaseSwift */,
+			);
 			productName = MyVoIPApp;
 			productReference = 6333887B2B5411CF00B4E749 /* MyVoIPApp.app */;
 			productType = "com.apple.product-type.application";
@@ -370,6 +384,9 @@
 				Base,
 			);
 			mainGroup = 633388722B5411CF00B4E749;
+			packageReferences = (
+				6339B9AF2B5422E300ACC97A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 6333887C2B5411CF00B4E749 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -387,8 +404,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6333888E2B5411D000B4E749 /* LaunchScreen.storyboard in Resources */,
+				6339B9B52B5425FB00ACC97A /* GoogleService-Info.plist in Resources */,
 				6333888B2B5411D000B4E749 /* Assets.xcassets in Resources */,
 				633388862B5411CF00B4E749 /* Main.storyboard in Resources */,
+				6339B9B72B54266C00ACC97A /* GoogleService-Info-Example.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -757,6 +776,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6339B9AF2B5422E300ACC97A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.19.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6339B9B02B5422E400ACC97A /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6339B9AF2B5422E300ACC97A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		6339B9B22B5422E400ACC97A /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6339B9AF2B5422E300ACC97A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		633388872B5411CF00B4E749 /* MyVoIPApp.xcdatamodeld */ = {

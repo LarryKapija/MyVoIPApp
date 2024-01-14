@@ -101,6 +101,14 @@
 		6333887D2B5411CF00B4E749 /* MyVoIPApp */ = {
 			isa = PBXGroup;
 			children = (
+				633388B92B54136900B4E749 /* Resources */,
+				633388B82B54135B00B4E749 /* Networking */,
+				633388B72B54134D00B4E749 /* Utilities */,
+				633388B62B54134600B4E749 /* Services */,
+				633388B42B54132500B4E749 /* Controller */,
+				633388B32B54131E00B4E749 /* ViewModel */,
+				633388B22B54131500B4E749 /* View */,
+				633388B12B54130F00B4E749 /* Model */,
 				6333887E2B5411CF00B4E749 /* AppDelegate.swift */,
 				633388802B5411CF00B4E749 /* SceneDelegate.swift */,
 				633388822B5411CF00B4E749 /* ViewController.swift */,
@@ -116,6 +124,11 @@
 		633388972B5411D000B4E749 /* MyVoIPAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				633388BE2B5413A900B4E749 /* UtilitiesTests */,
+				633388BD2B54139B00B4E749 /* ServiceTests */,
+				633388BC2B54139200B4E749 /* ControllerTests */,
+				633388BB2B54138900B4E749 /* ViewModelTests */,
+				633388BA2B54138000B4E749 /* ModelTests */,
 				633388982B5411D000B4E749 /* MyVoIPAppTests.swift */,
 			);
 			path = MyVoIPAppTests;
@@ -128,6 +141,145 @@
 				633388A42B5411D000B4E749 /* MyVoIPAppUITestsLaunchTests.swift */,
 			);
 			path = MyVoIPAppUITests;
+			sourceTree = "<group>";
+		};
+		633388B12B54130F00B4E749 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				633388BF2B5413CA00B4E749 /* CoreDataModels */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		633388B22B54131500B4E749 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		633388B32B54131E00B4E749 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		633388B42B54132500B4E749 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		633388B62B54134600B4E749 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				633388C02B5413DE00B4E749 /* CoreDataServices */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		633388B72B54134D00B4E749 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				633388C12B5413EA00B4E749 /* Helpers */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		633388B82B54135B00B4E749 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		633388B92B54136900B4E749 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		633388BA2B54138000B4E749 /* ModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				633388C22B54140200B4E749 /* CoreDataModelsTests */,
+			);
+			path = ModelTests;
+			sourceTree = "<group>";
+		};
+		633388BB2B54138900B4E749 /* ViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModelTests;
+			sourceTree = "<group>";
+		};
+		633388BC2B54139200B4E749 /* ControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ControllerTests;
+			sourceTree = "<group>";
+		};
+		633388BD2B54139B00B4E749 /* ServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				633388C32B54140C00B4E749 /* CoreDataServicesTests */,
+			);
+			path = ServiceTests;
+			sourceTree = "<group>";
+		};
+		633388BE2B5413A900B4E749 /* UtilitiesTests */ = {
+			isa = PBXGroup;
+			children = (
+				633388C42B54141300B4E749 /* HelpersTests */,
+			);
+			path = UtilitiesTests;
+			sourceTree = "<group>";
+		};
+		633388BF2B5413CA00B4E749 /* CoreDataModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreDataModels;
+			sourceTree = "<group>";
+		};
+		633388C02B5413DE00B4E749 /* CoreDataServices */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreDataServices;
+			sourceTree = "<group>";
+		};
+		633388C12B5413EA00B4E749 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		633388C22B54140200B4E749 /* CoreDataModelsTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreDataModelsTests;
+			sourceTree = "<group>";
+		};
+		633388C32B54140C00B4E749 /* CoreDataServicesTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreDataServicesTests;
+			sourceTree = "<group>";
+		};
+		633388C42B54141300B4E749 /* HelpersTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HelpersTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -20,7 +20,7 @@ class AgoraService {
     }
 
     func joinChannel(channelID: String, token: String?, uid: UInt, completion: @escaping (Bool) -> Void) {
-        let errorCode = agoraEngine?.joinChannel(byToken: token, channelId: channelID, info: nil, uid: uid) { _, _, _ in
+        let errorCode = agoraEngine?.joinChannel(byToken: token, channelId: channelID, info: nil, uid: uid) { string, _, _ in
             completion(true)
         }
         if errorCode != 0 {

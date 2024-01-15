@@ -54,6 +54,6 @@ class MockAgoraRtcEngineKit: AgoraRtcEngineKit {
 
     override func setChannelProfile(_ profile: AgoraChannelProfile) -> Int32 {
         currentChannelProfile = profile
-        return 0 
+        return 0
     }
 }

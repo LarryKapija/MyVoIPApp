@@ -12,6 +12,7 @@ import Combine
 
 class UserListViewController: UIViewController, UIViewControllerProtocol {
 
+    private var currentUser: UserEntity?
     private var viewModel: UserListViewModel!
     private var cancellables: Set<AnyCancellable> = []
     
@@ -62,8 +63,9 @@ class UserListViewController: UIViewController, UIViewControllerProtocol {
         nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
 
-        if let username = viewModel.fetchUserName() {
-            nameLabel.text = "Hi \(username)"
+        if let user = viewModel.fetchUser() {
+            self.currentUser = user
+            nameLabel.text = "Hi \(currentUser?.username ?? "")"
         }
         
         view.addSubview(tableView)
@@ -103,7 +105,22 @@ extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row < viewModel.users.count {
             let user = viewModel.users[indexPath.row]!
-            viewModel.callUser(user)
+            callUser(user)
         }
+    }
+    
+    private func callUser(_ user: UserEntity) {
+        // Navigate to the call screen and initiate the call using agoraService
+        // Implement this part once the call screen is created
+        
+        let navigationController = UINavigationController()
+        navigationController.navigationBar.isHidden = true
+        
+        addChild(navigationController)
+        view.addSubview(navigationController.view)
+        navigationController.didMove(toParent: self)
+        
+        let callViewController = CallViewController(viewModel: self.container.callViewModel, user: currentUser!)
+        navigationController.setViewControllers([callViewController], animated: true)
     }
 }

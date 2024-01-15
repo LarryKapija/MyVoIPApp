@@ -12,6 +12,7 @@ import AgoraRtcKit
 
 class CallViewController: UIViewController, UIViewControllerProtocol, AgoraRtcEngineDelegate {
 
+    private let user: UserEntity
     private let viewModel: CallViewModel
 
 
@@ -25,8 +26,9 @@ class CallViewController: UIViewController, UIViewControllerProtocol, AgoraRtcEn
     }
     
     
-    init(viewModel: CallViewModel) {
+    init(viewModel: CallViewModel, user: UserEntity) {
         self.viewModel = viewModel
+        self.user = user
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -36,6 +38,7 @@ class CallViewController: UIViewController, UIViewControllerProtocol, AgoraRtcEn
     
     func setupUI() {
         view.backgroundColor = UIColor.white
+        viewModel.joinChannel(channelName: .channelName, token: .channelToken, uid: UInt(user.userid))
     }
     
     func rtcEngine(

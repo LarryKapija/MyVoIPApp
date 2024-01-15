@@ -30,19 +30,19 @@ class LoginViewModel: ObservableObject {
     func loginUser(username: String, completion: @escaping (LoginStatus) -> Void) {
         // Check if the user already exists in Firebase
         firebaseService.fetchUser(username: username, context: coreDataStack.context) { user, error in
-            if let user = user, (user.username != nil), (user.userid != nil) {
-                self.userService.saveUser(username: user.username!, token: user.userid!)
+            if let user = user, (user.username != nil) {
+                self.userService.saveUser(username: user.username!, userid: user.userid)
                 completion(.LoginSucceed)
             } else {
                 // Register the user in Firebase
-                self.firebaseService.registerUser(withUserId: " ", username: username) { [weak self] error in
+                self.firebaseService.registerUser(username: username) { [weak self] id, error in
                     DispatchQueue.main.async {
-                        if let error = error {
+                        if (error != nil) {
                             completion(.Failed)
                         } else {
                             // Successfully registered on Firebase
                             // User not found in Firebase, create and save user in CoreData
-                            self?.userService.saveUser(username: username)
+                            self?.userService.saveUser(username: username, userid: Int16(id!))
                             completion(.UserCreated)
                         }
                     }

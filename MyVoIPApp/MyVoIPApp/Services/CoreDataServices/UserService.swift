@@ -14,10 +14,10 @@ class UserService {
         self.context = context
     }
 
-    func saveUser(username: String, token: String = "") {
+    func saveUser(username: String, userid: Int16 = 0) {
         let userEntity = UserEntity(context: context)
         userEntity.username = username
-        userEntity.userid = token
+        userEntity.userid = userid
 
         do {
             try context.save()
@@ -26,10 +26,10 @@ class UserService {
         }
     }
     
-    func updateUserID(username: String, userid: String) {
+    func updateUserID(username: String, userid: Int) {
         let userEntity = UserEntity(context: context)
         userEntity.username = username
-        userEntity.userid = userid
+        userEntity.userid = Int16(userid)
 
         do {
             try context.save()

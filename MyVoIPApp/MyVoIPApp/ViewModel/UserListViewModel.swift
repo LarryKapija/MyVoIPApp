@@ -35,8 +35,8 @@ class UserListViewModel: ObservableObject {
             }
         }
         
-        // Configure the observation of the user list in CoreData
-        setupUserListObservation()
+        // Get the userID of the current user
+        self.userName = self.userService.fetchUser()?.username
     }
     
     func refreshUserList() {
@@ -45,8 +45,6 @@ class UserListViewModel: ObservableObject {
         firebaseService.fetchUsers(context: context) { [weak self] result in
             switch result {
             case .success(let users):
-                // Get the userID of the current user
-                self?.userName = self?.userService.fetchUser()?.username
                 // Update the users list
                 DispatchQueue.main.async {
                     self?.filterUsers(users)
@@ -61,21 +59,7 @@ class UserListViewModel: ObservableObject {
         self.users = users.filter { $0?.username != userName}
     }
     
-    func fetchUserName() -> String? {
-        return userService.fetchUser()?.username
-    }
-
-    func callUser(_ user: UserEntity) {
-        // Navigate to the call screen and initiate the call using agoraService
-        // Implement this part once the call screen is created
-    }
-
-    private func setupUserListObservation() {
-        $users
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] users in
-                self?.users = users
-            }
-            .store(in: &cancellables)
+    func fetchUser() -> UserEntity? {
+        return userService.fetchUser()
     }
 }

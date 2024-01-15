@@ -17,10 +17,36 @@
 		633388992B5411D000B4E749 /* MyVoIPAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633388982B5411D000B4E749 /* MyVoIPAppTests.swift */; };
 		633388A32B5411D000B4E749 /* MyVoIPAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633388A22B5411D000B4E749 /* MyVoIPAppUITests.swift */; };
 		633388A52B5411D000B4E749 /* MyVoIPAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633388A42B5411D000B4E749 /* MyVoIPAppUITestsLaunchTests.swift */; };
+		633636AB2B543034002DFE45 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633636AA2B543034002DFE45 /* CoreDataStack.swift */; };
+		633636AD2B5430F2002DFE45 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633636AC2B5430F2002DFE45 /* UserService.swift */; };
+		633636AF2B545555002DFE45 /* CoreDataTestStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633636AE2B545555002DFE45 /* CoreDataTestStack.swift */; };
+		633636B12B545598002DFE45 /* UserServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633636B02B545598002DFE45 /* UserServiceTests.swift */; };
+		633636B32B545B01002DFE45 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633636B22B545B01002DFE45 /* LoginViewModel.swift */; };
+		633636B52B545D64002DFE45 /* AgoraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633636B42B545D64002DFE45 /* AgoraService.swift */; };
+		633636B82B545F59002DFE45 /* RtcBasic in Frameworks */ = {isa = PBXBuildFile; productRef = 633636B72B545F59002DFE45 /* RtcBasic */; };
+		633636BA2B545F78002DFE45 /* AgoraServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633636B92B545F78002DFE45 /* AgoraServiceTests.swift */; };
+		633636BE2B546140002DFE45 /* MockAgoraRtcEngineKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633636BD2B546140002DFE45 /* MockAgoraRtcEngineKit.swift */; };
+		633636C02B546192002DFE45 /* AgoraRtcEngineKitProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633636BF2B546192002DFE45 /* AgoraRtcEngineKitProtocol.swift */; };
+		633636C22B5482D0002DFE45 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633636C12B5482D0002DFE45 /* LoginViewModelTests.swift */; };
+		633636C42B54A98E002DFE45 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633636C32B54A98E002DFE45 /* FirebaseService.swift */; };
+		633636C62B54AA8E002DFE45 /* MockFirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633636C52B54AA8E002DFE45 /* MockFirebaseService.swift */; };
+		633636C82B54AB05002DFE45 /* FirebaseServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633636C72B54AB05002DFE45 /* FirebaseServiceTests.swift */; };
+		633636CA2B54B5C9002DFE45 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633636C92B54B5C9002DFE45 /* UserListViewModel.swift */; };
 		6339B9B12B5422E400ACC97A /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 6339B9B02B5422E400ACC97A /* FirebaseDatabase */; };
 		6339B9B32B5422E400ACC97A /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6339B9B22B5422E400ACC97A /* FirebaseDatabaseSwift */; };
 		6339B9B52B5425FB00ACC97A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6339B9B42B5425FB00ACC97A /* GoogleService-Info.plist */; };
 		6339B9B72B54266C00ACC97A /* GoogleService-Info-Example.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6339B9B62B54266C00ACC97A /* GoogleService-Info-Example.plist */; };
+		634524EC2B553FA400A5E3DF /* AgoraInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634524EB2B553FA400A5E3DF /* AgoraInitializer.swift */; };
+		634524EF2B5542F900A5E3DF /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634524EE2B5542F900A5E3DF /* CallViewController.swift */; };
+		634524F12B55436100A5E3DF /* CallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634524F02B55436100A5E3DF /* CallViewModel.swift */; };
+		63B3CA4F2B54C813005DF74D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3CA4E2B54C813005DF74D /* LoginViewController.swift */; };
+		63B3CA512B54C856005DF74D /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3CA502B54C856005DF74D /* UserListViewController.swift */; };
+		63B3CA532B54C873005DF74D /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3CA522B54C873005DF74D /* SplashScreenViewController.swift */; };
+		63B3CA552B54C965005DF74D /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3CA542B54C965005DF74D /* SplashScreenViewModel.swift */; };
+		63B3CA582B54DE2C005DF74D /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3CA572B54DE2C005DF74D /* DependencyContainer.swift */; };
+		63B3CA5A2B54DE6C005DF74D /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 63B3CA592B54DE6C005DF74D /* Swinject */; };
+		63B3CA5C2B54DE7C005DF74D /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 63B3CA5B2B54DE7C005DF74D /* Swinject-Dynamic */; };
+		63B3CA5E2B54EE36005DF74D /* UIViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3CA5D2B54EE36005DF74D /* UIViewControllerProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +81,31 @@
 		6333889E2B5411D000B4E749 /* MyVoIPAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyVoIPAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		633388A22B5411D000B4E749 /* MyVoIPAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVoIPAppUITests.swift; sourceTree = "<group>"; };
 		633388A42B5411D000B4E749 /* MyVoIPAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVoIPAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		633636AA2B543034002DFE45 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		633636AC2B5430F2002DFE45 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		633636AE2B545555002DFE45 /* CoreDataTestStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestStack.swift; sourceTree = "<group>"; };
+		633636B02B545598002DFE45 /* UserServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceTests.swift; sourceTree = "<group>"; };
+		633636B22B545B01002DFE45 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		633636B42B545D64002DFE45 /* AgoraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgoraService.swift; sourceTree = "<group>"; };
+		633636B92B545F78002DFE45 /* AgoraServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgoraServiceTests.swift; sourceTree = "<group>"; };
+		633636BD2B546140002DFE45 /* MockAgoraRtcEngineKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAgoraRtcEngineKit.swift; sourceTree = "<group>"; };
+		633636BF2B546192002DFE45 /* AgoraRtcEngineKitProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgoraRtcEngineKitProtocol.swift; sourceTree = "<group>"; };
+		633636C12B5482D0002DFE45 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		633636C32B54A98E002DFE45 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		633636C52B54AA8E002DFE45 /* MockFirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFirebaseService.swift; sourceTree = "<group>"; };
+		633636C72B54AB05002DFE45 /* FirebaseServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServiceTests.swift; sourceTree = "<group>"; };
+		633636C92B54B5C9002DFE45 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		6339B9B42B5425FB00ACC97A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6339B9B62B54266C00ACC97A /* GoogleService-Info-Example.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Example.plist"; sourceTree = "<group>"; };
+		634524EB2B553FA400A5E3DF /* AgoraInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgoraInitializer.swift; sourceTree = "<group>"; };
+		634524EE2B5542F900A5E3DF /* CallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
+		634524F02B55436100A5E3DF /* CallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewModel.swift; sourceTree = "<group>"; };
+		63B3CA4E2B54C813005DF74D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		63B3CA502B54C856005DF74D /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
+		63B3CA522B54C873005DF74D /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		63B3CA542B54C965005DF74D /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
+		63B3CA572B54DE2C005DF74D /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		63B3CA5D2B54EE36005DF74D /* UIViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +115,9 @@
 			files = (
 				6339B9B32B5422E400ACC97A /* FirebaseDatabaseSwift in Frameworks */,
 				6339B9B12B5422E400ACC97A /* FirebaseDatabase in Frameworks */,
+				633636B82B545F59002DFE45 /* RtcBasic in Frameworks */,
+				63B3CA5C2B54DE7C005DF74D /* Swinject-Dynamic in Frameworks */,
+				63B3CA5A2B54DE6C005DF74D /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +186,7 @@
 		633388972B5411D000B4E749 /* MyVoIPAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				633636BB2B546022002DFE45 /* Mocks */,
 				633388BE2B5413A900B4E749 /* UtilitiesTests */,
 				633388BD2B54139B00B4E749 /* ServiceTests */,
 				633388BC2B54139200B4E749 /* ControllerTests */,
@@ -164,6 +217,11 @@
 		633388B22B54131500B4E749 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				63B3CA4E2B54C813005DF74D /* LoginViewController.swift */,
+				63B3CA502B54C856005DF74D /* UserListViewController.swift */,
+				63B3CA522B54C873005DF74D /* SplashScreenViewController.swift */,
+				63B3CA5D2B54EE36005DF74D /* UIViewControllerProtocol.swift */,
+				634524EE2B5542F900A5E3DF /* CallViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -171,6 +229,10 @@
 		633388B32B54131E00B4E749 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				633636B22B545B01002DFE45 /* LoginViewModel.swift */,
+				633636C92B54B5C9002DFE45 /* UserListViewModel.swift */,
+				63B3CA542B54C965005DF74D /* SplashScreenViewModel.swift */,
+				634524F02B55436100A5E3DF /* CallViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -186,6 +248,9 @@
 			isa = PBXGroup;
 			children = (
 				633388C02B5413DE00B4E749 /* CoreDataServices */,
+				633636B42B545D64002DFE45 /* AgoraService.swift */,
+				633636BF2B546192002DFE45 /* AgoraRtcEngineKitProtocol.swift */,
+				633636C32B54A98E002DFE45 /* FirebaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -194,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				633388C12B5413EA00B4E749 /* Helpers */,
+				63B3CA572B54DE2C005DF74D /* DependencyContainer.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -223,6 +289,7 @@
 		633388BB2B54138900B4E749 /* ViewModelTests */ = {
 			isa = PBXGroup;
 			children = (
+				633636C12B5482D0002DFE45 /* LoginViewModelTests.swift */,
 			);
 			path = ViewModelTests;
 			sourceTree = "<group>";
@@ -238,6 +305,8 @@
 			isa = PBXGroup;
 			children = (
 				633388C32B54140C00B4E749 /* CoreDataServicesTests */,
+				633636B92B545F78002DFE45 /* AgoraServiceTests.swift */,
+				633636C72B54AB05002DFE45 /* FirebaseServiceTests.swift */,
 			);
 			path = ServiceTests;
 			sourceTree = "<group>";
@@ -260,6 +329,8 @@
 		633388C02B5413DE00B4E749 /* CoreDataServices */ = {
 			isa = PBXGroup;
 			children = (
+				633636AA2B543034002DFE45 /* CoreDataStack.swift */,
+				633636AC2B5430F2002DFE45 /* UserService.swift */,
 			);
 			path = CoreDataServices;
 			sourceTree = "<group>";
@@ -267,6 +338,7 @@
 		633388C12B5413EA00B4E749 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				634524EB2B553FA400A5E3DF /* AgoraInitializer.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -281,6 +353,8 @@
 		633388C32B54140C00B4E749 /* CoreDataServicesTests */ = {
 			isa = PBXGroup;
 			children = (
+				633636AE2B545555002DFE45 /* CoreDataTestStack.swift */,
+				633636B02B545598002DFE45 /* UserServiceTests.swift */,
 			);
 			path = CoreDataServicesTests;
 			sourceTree = "<group>";
@@ -290,6 +364,15 @@
 			children = (
 			);
 			path = HelpersTests;
+			sourceTree = "<group>";
+		};
+		633636BB2B546022002DFE45 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				633636BD2B546140002DFE45 /* MockAgoraRtcEngineKit.swift */,
+				633636C52B54AA8E002DFE45 /* MockFirebaseService.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,6 +394,9 @@
 			packageProductDependencies = (
 				6339B9B02B5422E400ACC97A /* FirebaseDatabase */,
 				6339B9B22B5422E400ACC97A /* FirebaseDatabaseSwift */,
+				633636B72B545F59002DFE45 /* RtcBasic */,
+				63B3CA592B54DE6C005DF74D /* Swinject */,
+				63B3CA5B2B54DE7C005DF74D /* Swinject-Dynamic */,
 			);
 			productName = MyVoIPApp;
 			productReference = 6333887B2B5411CF00B4E749 /* MyVoIPApp.app */;
@@ -386,6 +472,8 @@
 			mainGroup = 633388722B5411CF00B4E749;
 			packageReferences = (
 				6339B9AF2B5422E300ACC97A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				633636B62B545F59002DFE45 /* XCRemoteSwiftPackageReference "AgoraRtcEngine_iOS" */,
+				63B3CA562B54DDF9005DF74D /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = 6333887C2B5411CF00B4E749 /* Products */;
 			projectDirPath = "";
@@ -432,10 +520,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				633636B52B545D64002DFE45 /* AgoraService.swift in Sources */,
+				633636CA2B54B5C9002DFE45 /* UserListViewModel.swift in Sources */,
+				634524EF2B5542F900A5E3DF /* CallViewController.swift in Sources */,
+				63B3CA532B54C873005DF74D /* SplashScreenViewController.swift in Sources */,
+				633636AB2B543034002DFE45 /* CoreDataStack.swift in Sources */,
 				633388832B5411CF00B4E749 /* ViewController.swift in Sources */,
+				634524EC2B553FA400A5E3DF /* AgoraInitializer.swift in Sources */,
+				633636AD2B5430F2002DFE45 /* UserService.swift in Sources */,
+				63B3CA582B54DE2C005DF74D /* DependencyContainer.swift in Sources */,
 				6333887F2B5411CF00B4E749 /* AppDelegate.swift in Sources */,
+				63B3CA4F2B54C813005DF74D /* LoginViewController.swift in Sources */,
 				633388812B5411CF00B4E749 /* SceneDelegate.swift in Sources */,
+				63B3CA5E2B54EE36005DF74D /* UIViewControllerProtocol.swift in Sources */,
+				63B3CA512B54C856005DF74D /* UserListViewController.swift in Sources */,
+				633636C42B54A98E002DFE45 /* FirebaseService.swift in Sources */,
 				633388892B5411CF00B4E749 /* MyVoIPApp.xcdatamodeld in Sources */,
+				633636B32B545B01002DFE45 /* LoginViewModel.swift in Sources */,
+				633636C02B546192002DFE45 /* AgoraRtcEngineKitProtocol.swift in Sources */,
+				634524F12B55436100A5E3DF /* CallViewModel.swift in Sources */,
+				63B3CA552B54C965005DF74D /* SplashScreenViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +547,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				633636C62B54AA8E002DFE45 /* MockFirebaseService.swift in Sources */,
+				633636C22B5482D0002DFE45 /* LoginViewModelTests.swift in Sources */,
+				633636C82B54AB05002DFE45 /* FirebaseServiceTests.swift in Sources */,
+				633636BE2B546140002DFE45 /* MockAgoraRtcEngineKit.swift in Sources */,
+				633636BA2B545F78002DFE45 /* AgoraServiceTests.swift in Sources */,
 				633388992B5411D000B4E749 /* MyVoIPAppTests.swift in Sources */,
+				633636AF2B545555002DFE45 /* CoreDataTestStack.swift in Sources */,
+				633636B12B545598002DFE45 /* UserServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,6 +889,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		633636B62B545F59002DFE45 /* XCRemoteSwiftPackageReference "AgoraRtcEngine_iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AgoraIO/AgoraRtcEngine_iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.6;
+			};
+		};
 		6339B9AF2B5422E300ACC97A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -786,9 +905,22 @@
 				minimumVersion = 10.19.1;
 			};
 		};
+		63B3CA562B54DDF9005DF74D /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		633636B72B545F59002DFE45 /* RtcBasic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 633636B62B545F59002DFE45 /* XCRemoteSwiftPackageReference "AgoraRtcEngine_iOS" */;
+			productName = RtcBasic;
+		};
 		6339B9B02B5422E400ACC97A /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6339B9AF2B5422E300ACC97A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -798,6 +930,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6339B9AF2B5422E300ACC97A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabaseSwift;
+		};
+		63B3CA592B54DE6C005DF74D /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63B3CA562B54DDF9005DF74D /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		63B3CA5B2B54DE7C005DF74D /* Swinject-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63B3CA562B54DDF9005DF74D /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = "Swinject-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 

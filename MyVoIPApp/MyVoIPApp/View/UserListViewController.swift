@@ -25,9 +25,38 @@ class UserListViewController: UIViewController, UIViewControllerProtocol {
     
     private let nameLabel: UILabel = {
         let nameLabel = UILabel()
-        nameLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        nameLabel.font = UIFont.boldSystemFont(ofSize: 30)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         return nameLabel
+    }()
+    
+    let titleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.font = UIFont.systemFont(ofSize: 20)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        return titleLabel
+    }()
+    
+    
+    private let joinChannelButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.backgroundColor = UIColor.white
+        button.tintColor = UIColor.white
+        button.layer.cornerRadius = 32.5
+        button.layer.borderWidth = 5.5
+        button.layer.borderColor = UIColor.black.cgColor
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.heightAnchor.constraint(equalToConstant: 65).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 65).isActive = true
+        return button
+    }()
+
+    private let buttonLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Join the channel"
+        label.textColor = UIColor.gray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     init(viewModel: UserListViewModel) {
@@ -54,31 +83,70 @@ class UserListViewController: UIViewController, UIViewControllerProtocol {
     }
     
     func setupUI() {
-        
         view.addSubview(nameLabel)
+        view.addSubview(titleLabel)
         view.addSubview(tableView)
-        
+        view.addSubview(buttonLabel)
+        view.addSubview(joinChannelButton)
+
         view.backgroundColor = UIColor.white
         
-        nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        NSLayoutConstraint.activate([
+
+            nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+
+            titleLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+
+            buttonLabel.bottomAnchor.constraint(equalTo: joinChannelButton.topAnchor, constant: -10),
+            buttonLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+
+            joinChannelButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            joinChannelButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 15)
+
+        ])
 
         if let user = viewModel.fetchUser() {
             self.currentUser = user
             nameLabel.text = "Hi \(currentUser?.username ?? "")"
         }
-        
-        view.addSubview(tableView)
-        
+
+        titleLabel.text = "Welcome to the \(String.channelName) channel"
+        tableView.tableHeaderView = generateTableHeader()
+        joinChannelButton.addTarget(self, action: #selector(joinChannelButtonTapped), for: .touchUpInside)
+
         // Configure the layout constraints for the table view
         setupTableView()
+    }
+    
+    @objc private func joinChannelButtonTapped() {
+        let navigationController = UINavigationController()
+        navigationController.navigationBar.isHidden = true
 
+        addChild(navigationController)
+        view.addSubview(navigationController.view)
+        navigationController.didMove(toParent: self)
+
+        let callViewController = CallViewController(viewModel: self.container.callViewModel, user: currentUser!)
+        navigationController.setViewControllers([callViewController], animated: true)
+    }
+
+    private func generateTableHeader() -> UIView {
+        let custom = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 40))
+        custom.addSubview({
+            let table = UILabel()
+            table.text = "Available users:"
+            table.font = UIFont.systemFont(ofSize: 18)
+            return table
+        }())
+        return custom
     }
     
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10).isActive = true
+        tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
@@ -100,27 +168,5 @@ extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row < viewModel.users.count {
-            let user = viewModel.users[indexPath.row]!
-            callUser(user)
-        }
-    }
-    
-    private func callUser(_ user: UserEntity) {
-        // Navigate to the call screen and initiate the call using agoraService
-        // Implement this part once the call screen is created
-        
-        let navigationController = UINavigationController()
-        navigationController.navigationBar.isHidden = true
-        
-        addChild(navigationController)
-        view.addSubview(navigationController.view)
-        navigationController.didMove(toParent: self)
-        
-        let callViewController = CallViewController(viewModel: self.container.callViewModel, user: currentUser!)
-        navigationController.setViewControllers([callViewController], animated: true)
     }
 }

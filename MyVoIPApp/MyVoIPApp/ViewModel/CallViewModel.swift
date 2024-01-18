@@ -8,8 +8,11 @@
 import Foundation
 import AgoraRtcKit
 class CallViewModel {
-    
+    private var user: UserEntity?
     private let agoraService: AgoraService
+    
+    private(set) var isMuted: Bool = false
+    private(set) var isSpeakerOn: Bool = true
     
     @Published var isJoiningChannel = false
     @Published var joinedChannel = false
@@ -23,16 +26,38 @@ class CallViewModel {
     
     init( agoraService: AgoraService) {
         self.agoraService = agoraService
+        
+        agoraService.onInitialized = { [weak self] in
+            self?.joinChannel(channelName: .channelName, token: .channelToken, uid: UInt((self?.user?.userid)!))
+        }
     }
     
-    func setpAgoraEngine(delegate: AgoraRtcEngineDelegate) {
+    func prepareForCall(withUser user: UserEntity) {
+        self.user = user
+    }
+    
+    func setupAgoraEngine(delegate: AgoraRtcEngineDelegate) {
         agoraService.setupAgoraEngine(delegate: delegate)
     }
     
+    func endCall(completion: @escaping (Bool) -> Void) {
+        agoraService.leaveChannel(completion: completion)
+    }
+    
+    func toggleMute() {
+        isMuted.toggle()
+        agoraService.muteLocalAudioStream(mute: isMuted)
+    }
+    
+    func toggleSpeaker() {
+        isSpeakerOn.toggle()
+        agoraService.setEnableSpeakerphone(enableSpeaker: isSpeakerOn)
+    }
+
     func joinChannel(channelName: String, token: String?, uid: UInt) {
         isJoiningChannel = true
         errorMessage = ""
-        
+
         agoraService.joinChannel(channelID: channelName, token: token, uid: uid) { [weak self] success in
             DispatchQueue.main.async {
                 self?.isJoiningChannel = false
@@ -45,18 +70,17 @@ class CallViewModel {
             }
         }
     }
-    
+
     func leaveChannel()  {
         agoraService.leaveChannel { [weak self] success in
             DispatchQueue.main.async {
                 self?.joinedChannel = !success
-                
+
                 if !success {
                     self?.errorMessage = "Failed to leave channel"
                     return
                 }
-                
-                
+
                 self?.agoraService.stopPreview() { [weak self] success in
                     if success {
                         self?.allUsers.removeAll()
@@ -66,7 +90,6 @@ class CallViewModel {
         }
     }
 
-    
     private func handleError(message: String) {
         isJoiningChannel = false
         errorMessage = message

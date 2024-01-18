@@ -36,6 +36,10 @@
 		6339B9B32B5422E400ACC97A /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6339B9B22B5422E400ACC97A /* FirebaseDatabaseSwift */; };
 		6339B9B52B5425FB00ACC97A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6339B9B42B5425FB00ACC97A /* GoogleService-Info.plist */; };
 		6339B9B72B54266C00ACC97A /* GoogleService-Info-Example.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6339B9B62B54266C00ACC97A /* GoogleService-Info-Example.plist */; };
+		633D24822B58B30D00DB5C99 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 633D24812B58B30D00DB5C99 /* Lottie */; };
+		633D24872B58B6C500DB5C99 /* Splash-Animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 633D24852B58B6C500DB5C99 /* Splash-Animation.json */; };
+		633D24882B58B6C500DB5C99 /* Call-Animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 633D24862B58B6C500DB5C99 /* Call-Animation.json */; };
+		633D248A2B58E35F00DB5C99 /* UIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633D24892B58E35F00DB5C99 /* UIComponents.swift */; };
 		634524EC2B553FA400A5E3DF /* AgoraInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634524EB2B553FA400A5E3DF /* AgoraInitializer.swift */; };
 		634524EF2B5542F900A5E3DF /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634524EE2B5542F900A5E3DF /* CallViewController.swift */; };
 		634524F12B55436100A5E3DF /* CallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634524F02B55436100A5E3DF /* CallViewModel.swift */; };
@@ -98,6 +102,9 @@
 		633636C92B54B5C9002DFE45 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		6339B9B42B5425FB00ACC97A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6339B9B62B54266C00ACC97A /* GoogleService-Info-Example.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Example.plist"; sourceTree = "<group>"; };
+		633D24852B58B6C500DB5C99 /* Splash-Animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Splash-Animation.json"; sourceTree = "<group>"; };
+		633D24862B58B6C500DB5C99 /* Call-Animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Call-Animation.json"; sourceTree = "<group>"; };
+		633D24892B58E35F00DB5C99 /* UIComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponents.swift; sourceTree = "<group>"; };
 		634524EB2B553FA400A5E3DF /* AgoraInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgoraInitializer.swift; sourceTree = "<group>"; };
 		634524EE2B5542F900A5E3DF /* CallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
 		634524F02B55436100A5E3DF /* CallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewModel.swift; sourceTree = "<group>"; };
@@ -120,6 +127,7 @@
 				633636B82B545F59002DFE45 /* RtcBasic in Frameworks */,
 				63B3CA5C2B54DE7C005DF74D /* Swinject-Dynamic in Frameworks */,
 				63B3CA5A2B54DE6C005DF74D /* Swinject in Frameworks */,
+				633D24822B58B30D00DB5C99 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +171,7 @@
 		6333887D2B5411CF00B4E749 /* MyVoIPApp */ = {
 			isa = PBXGroup;
 			children = (
+				633D24832B58B4BB00DB5C99 /* Assets */,
 				6339B9B62B54266C00ACC97A /* GoogleService-Info-Example.plist */,
 				6339B9B42B5425FB00ACC97A /* GoogleService-Info.plist */,
 				633388B92B54136900B4E749 /* Resources */,
@@ -263,6 +272,7 @@
 				633388C12B5413EA00B4E749 /* Helpers */,
 				63B3CA572B54DE2C005DF74D /* DependencyContainer.swift */,
 				634524F42B555BC700A5E3DF /* String+Extension.swift */,
+				633D24892B58E35F00DB5C99 /* UIComponents.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -378,6 +388,23 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		633D24832B58B4BB00DB5C99 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				633D24842B58B4C500DB5C99 /* Animations */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		633D24842B58B4C500DB5C99 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				633D24862B58B6C500DB5C99 /* Call-Animation.json */,
+				633D24852B58B6C500DB5C99 /* Splash-Animation.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -400,6 +427,7 @@
 				633636B72B545F59002DFE45 /* RtcBasic */,
 				63B3CA592B54DE6C005DF74D /* Swinject */,
 				63B3CA5B2B54DE7C005DF74D /* Swinject-Dynamic */,
+				633D24812B58B30D00DB5C99 /* Lottie */,
 			);
 			productName = MyVoIPApp;
 			productReference = 6333887B2B5411CF00B4E749 /* MyVoIPApp.app */;
@@ -477,6 +505,7 @@
 				6339B9AF2B5422E300ACC97A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				633636B62B545F59002DFE45 /* XCRemoteSwiftPackageReference "AgoraRtcEngine_iOS" */,
 				63B3CA562B54DDF9005DF74D /* XCRemoteSwiftPackageReference "Swinject" */,
+				633D24802B58B30C00DB5C99 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = 6333887C2B5411CF00B4E749 /* Products */;
 			projectDirPath = "";
@@ -495,8 +524,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6333888E2B5411D000B4E749 /* LaunchScreen.storyboard in Resources */,
+				633D24872B58B6C500DB5C99 /* Splash-Animation.json in Resources */,
 				6339B9B52B5425FB00ACC97A /* GoogleService-Info.plist in Resources */,
 				6333888B2B5411D000B4E749 /* Assets.xcassets in Resources */,
+				633D24882B58B6C500DB5C99 /* Call-Animation.json in Resources */,
 				633388862B5411CF00B4E749 /* Main.storyboard in Resources */,
 				6339B9B72B54266C00ACC97A /* GoogleService-Info-Example.plist in Resources */,
 			);
@@ -524,6 +555,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				633636B52B545D64002DFE45 /* AgoraService.swift in Sources */,
+				633D248A2B58E35F00DB5C99 /* UIComponents.swift in Sources */,
 				634524F52B555BC700A5E3DF /* String+Extension.swift in Sources */,
 				633636CA2B54B5C9002DFE45 /* UserListViewModel.swift in Sources */,
 				634524EF2B5542F900A5E3DF /* CallViewController.swift in Sources */,
@@ -909,6 +941,14 @@
 				minimumVersion = 10.19.1;
 			};
 		};
+		633D24802B58B30C00DB5C99 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.4;
+			};
+		};
 		63B3CA562B54DDF9005DF74D /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject.git";
@@ -934,6 +974,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6339B9AF2B5422E300ACC97A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabaseSwift;
+		};
+		633D24812B58B30D00DB5C99 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 633D24802B58B30C00DB5C99 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
 		};
 		63B3CA592B54DE6C005DF74D /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;

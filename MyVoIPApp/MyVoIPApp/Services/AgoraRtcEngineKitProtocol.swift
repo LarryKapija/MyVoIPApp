@@ -16,6 +16,8 @@ protocol AgoraRtcEngineKitProtocol {
     func setChannelProfile(_ profile: AgoraChannelProfile) -> Int32
     func setClientRole(_ role: AgoraClientRole) -> Int32
     func stopPreview() -> Int32
+    func muteLocalAudioStream(_ mute: Bool) -> Int32
+    func setEnableSpeakerphone(_ enabled: Bool) -> Int32
 }
 
 extension AgoraRtcEngineKit: AgoraRtcEngineKitProtocol {}

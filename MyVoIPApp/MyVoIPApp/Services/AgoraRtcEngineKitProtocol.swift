@@ -18,6 +18,7 @@ protocol AgoraRtcEngineKitProtocol {
     func stopPreview() -> Int32
     func muteLocalAudioStream(_ mute: Bool) -> Int32
     func setEnableSpeakerphone(_ enabled: Bool) -> Int32
+    var delegate: AgoraRtcEngineDelegate? { get set }
 }
 
 extension AgoraRtcEngineKit: AgoraRtcEngineKitProtocol {}

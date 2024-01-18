@@ -109,7 +109,8 @@ class UserListViewController: UIViewController, UIViewControllerProtocol {
 
         if let user = viewModel.fetchUser() {
             self.currentUser = user
-            nameLabel.text = "Hi \(currentUser?.username ?? "")"
+            let name = currentUser?.username
+            nameLabel.text = "Hi \(name ?? "")"
         }
 
         titleLabel.text = "Welcome to the \(String.channelName) channel"
@@ -165,8 +166,10 @@ extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row < viewModel.users.count {
             let user = viewModel.users[indexPath.row]
             cell.textLabel?.text = user?.username
+            return cell
         }
         
+        cell.textLabel?.text = nil
         return cell
     }
 }

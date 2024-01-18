@@ -11,7 +11,7 @@ import Combine
 import AgoraRtcKit
 import Lottie
 
-class CallViewController: UIViewController, UIViewControllerProtocol, AgoraRtcEngineDelegate {
+class CallViewController: UIViewController, UIViewControllerProtocol{
 
     private let user: UserEntity
     private let viewModel: CallViewModel
@@ -22,6 +22,7 @@ class CallViewController: UIViewController, UIViewControllerProtocol, AgoraRtcEn
     private let participantsLabel: UILabel = {
         var label = UILabel()
         label.text = "Participants: -"
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
@@ -84,10 +85,9 @@ class CallViewController: UIViewController, UIViewControllerProtocol, AgoraRtcEn
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        viewModel.setupAgoraEngine(delegate: self)
+        setupBindings()
     }
-    
-    
+
     init(viewModel: CallViewModel, user: UserEntity) {
         self.viewModel = viewModel
         self.user = user
@@ -101,27 +101,31 @@ class CallViewController: UIViewController, UIViewControllerProtocol, AgoraRtcEn
 
     func setupUI() {
         view.backgroundColor = UIColor.white
-        
+
         animationView.backgroundColor = view.backgroundColor
         animationView.center = self.view.center
-        
-        endCallButton.addTarget(self, action: #selector(endCallTapped), for: .touchUpInside)
-        muteButton.addTarget(self, action: #selector(muteTapped), for: .touchUpInside)
+
+        endCallButton.addTarget(self, action: #selector(endCallButtonTapped), for: .touchUpInside)
+        muteButton.addTarget(self, action: #selector(muteButtonTapped), for: .touchUpInside)
         speakerButton.addTarget(self, action: #selector(speakerTapped), for: .touchUpInside)
 
         view.addSubview(animationView)
+        view.addSubview(participantsLabel)
         view.addSubview(buttonsStackView)
-        
+
         buttonsStackView.addArrangedSubview(speakerButton)
         buttonsStackView.addArrangedSubview(endCallButton)
         buttonsStackView.addArrangedSubview(muteButton)
-        
+
         NSLayoutConstraint.activate([
+            participantsLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            participantsLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
+
             buttonsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             buttonsStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 15),
-            
+
             animationView.topAnchor.constraint(equalTo: view.topAnchor),
-            animationView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            animationView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             animationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             animationView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
@@ -129,10 +133,21 @@ class CallViewController: UIViewController, UIViewControllerProtocol, AgoraRtcEn
         animationView.play()
 
         endCallButton.addTarget(self, action: #selector(endCallButtonTapped), for: .touchUpInside)
-        muteButton.addTarget(self, action: #selector(muteTapped), for: .touchUpInside)
+        muteButton.addTarget(self, action: #selector(muteButtonTapped), for: .touchUpInside)
         speakerButton.addTarget(self, action: #selector(speakerTapped), for: .touchUpInside)
     }
-    
+
+    private func setupBindings() {
+        viewModel.onActiveUsersChanged = { [weak self] in
+          self?.updateActiveUsersDisplay()
+        }
+    }
+
+    private func updateActiveUsersDisplay() {
+        let activeUsersText = viewModel.activeUsers
+        participantsLabel.text = "Active Users: \(activeUsersText)"
+    }
+
     @objc private func endCallButtonTapped() {
         let navigationController = UINavigationController()
         navigationController.navigationBar.isHidden = true
@@ -140,45 +155,23 @@ class CallViewController: UIViewController, UIViewControllerProtocol, AgoraRtcEn
         addChild(navigationController)
         view.addSubview(navigationController.view)
         navigationController.didMove(toParent: self)
-
-        //let callViewController = CallViewController(viewModel: self.container.callViewModel, user: currentUser!)
-        //navigationController.setViewControllers([callViewController], animated: true)
+        
+        viewModel.exitCall() { success in
+            if success {
+                let userListController = UserListViewController(viewModel: self.container.userListViewModel)
+                navigationController.setViewControllers([userListController], animated: false)
+            }
+        }
     }
     
-    @objc private func endCallTapped() {
-        //viewModel.endCall()
-    }
-    
-    @objc private func muteTapped() {
-        //viewModel.toggleMute()
-        // Actualiza la UI según sea necesario, por ejemplo cambiando el título del botón
-        //let newTitle = viewModel.isMuted ? "Unmute" : "Mute"
-        //muteButton.setTitle(newTitle, for: .normal)
+    @objc private func muteButtonTapped() {
+        viewModel.toggleMute()
+        muteButton.setTitle( viewModel.isMuted ? "📴" : "🎙️", for: .normal)
+        muteButton.backgroundColor = viewModel.isMuted ? UIColor.lightGray : view.backgroundColor
     }
     
     @objc private func speakerTapped() {
-        //viewModel.toggleSpeaker()
-        // Actualiza la UI según sea necesario, por ejemplo cambiando el título del botón
-        //let newTitle = viewModel.isSpeakerOn ? "Speaker Off" : "Speaker On"
-        //speakerButton.setTitle(newTitle, for: .normal)
-    }
-    
-    func rtcEngine(
-        _ engine: AgoraRtcEngineKit, didJoinChannel channel: String,
-        withUid uid: UInt, elapsed: Int
-    ) {
-        // The delegate is telling us that the local user has successfully joined the channel.
-        viewModel.localUserId = uid
-        viewModel.allUsers.insert(uid)
-    }
-
-    func rtcEngine(_ engine: AgoraRtcEngineKit, didJoinedOfUid uid: UInt, elapsed: Int) {
-        // The delegate is telling us that a remote user has joined the channel.
-        viewModel.allUsers.insert(uid)
-    }
-
-    func rtcEngine(_ engine: AgoraRtcEngineKit, didOfflineOfUid uid: UInt, reason: AgoraUserOfflineReason) {
-        // The delegate is telling us that a remote user has left the channel.
-        viewModel.allUsers.remove(uid)
+        viewModel.toggleSpeaker()
+        speakerButton.titleLabel?.font = UIFont.systemFont(ofSize: viewModel.isSpeakerOn ? 30 : 20)
     }
 }

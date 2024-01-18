@@ -40,6 +40,10 @@
 		633D24872B58B6C500DB5C99 /* Splash-Animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 633D24852B58B6C500DB5C99 /* Splash-Animation.json */; };
 		633D24882B58B6C500DB5C99 /* Call-Animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 633D24862B58B6C500DB5C99 /* Call-Animation.json */; };
 		633D248A2B58E35F00DB5C99 /* UIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633D24892B58E35F00DB5C99 /* UIComponents.swift */; };
+		633D248C2B5956F400DB5C99 /* FirebaseInAppMessagingSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 633D248B2B5956F400DB5C99 /* FirebaseInAppMessagingSwift-Beta */; };
+		633D248E2B5956F400DB5C99 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 633D248D2B5956F400DB5C99 /* FirebaseMessaging */; };
+		633D24902B595EBC00DB5C99 /* FCMTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633D248F2B595EBC00DB5C99 /* FCMTokenManager.swift */; };
+		633D24922B59621300DB5C99 /* VoIPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633D24912B59621300DB5C99 /* VoIPService.swift */; };
 		634524EC2B553FA400A5E3DF /* AgoraInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634524EB2B553FA400A5E3DF /* AgoraInitializer.swift */; };
 		634524EF2B5542F900A5E3DF /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634524EE2B5542F900A5E3DF /* CallViewController.swift */; };
 		634524F12B55436100A5E3DF /* CallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634524F02B55436100A5E3DF /* CallViewModel.swift */; };
@@ -105,6 +109,8 @@
 		633D24852B58B6C500DB5C99 /* Splash-Animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Splash-Animation.json"; sourceTree = "<group>"; };
 		633D24862B58B6C500DB5C99 /* Call-Animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Call-Animation.json"; sourceTree = "<group>"; };
 		633D24892B58E35F00DB5C99 /* UIComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponents.swift; sourceTree = "<group>"; };
+		633D248F2B595EBC00DB5C99 /* FCMTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMTokenManager.swift; sourceTree = "<group>"; };
+		633D24912B59621300DB5C99 /* VoIPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoIPService.swift; sourceTree = "<group>"; };
 		634524EB2B553FA400A5E3DF /* AgoraInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgoraInitializer.swift; sourceTree = "<group>"; };
 		634524EE2B5542F900A5E3DF /* CallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
 		634524F02B55436100A5E3DF /* CallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewModel.swift; sourceTree = "<group>"; };
@@ -122,8 +128,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				633D248E2B5956F400DB5C99 /* FirebaseMessaging in Frameworks */,
 				6339B9B32B5422E400ACC97A /* FirebaseDatabaseSwift in Frameworks */,
 				6339B9B12B5422E400ACC97A /* FirebaseDatabase in Frameworks */,
+				633D248C2B5956F400DB5C99 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				633636B82B545F59002DFE45 /* RtcBasic in Frameworks */,
 				63B3CA5C2B54DE7C005DF74D /* Swinject-Dynamic in Frameworks */,
 				63B3CA5A2B54DE6C005DF74D /* Swinject in Frameworks */,
@@ -262,6 +270,7 @@
 				633636B42B545D64002DFE45 /* AgoraService.swift */,
 				633636BF2B546192002DFE45 /* AgoraRtcEngineKitProtocol.swift */,
 				633636C32B54A98E002DFE45 /* FirebaseService.swift */,
+				633D24912B59621300DB5C99 /* VoIPService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -273,6 +282,7 @@
 				63B3CA572B54DE2C005DF74D /* DependencyContainer.swift */,
 				634524F42B555BC700A5E3DF /* String+Extension.swift */,
 				633D24892B58E35F00DB5C99 /* UIComponents.swift */,
+				633D248F2B595EBC00DB5C99 /* FCMTokenManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -428,6 +438,8 @@
 				63B3CA592B54DE6C005DF74D /* Swinject */,
 				63B3CA5B2B54DE7C005DF74D /* Swinject-Dynamic */,
 				633D24812B58B30D00DB5C99 /* Lottie */,
+				633D248B2B5956F400DB5C99 /* FirebaseInAppMessagingSwift-Beta */,
+				633D248D2B5956F400DB5C99 /* FirebaseMessaging */,
 			);
 			productName = MyVoIPApp;
 			productReference = 6333887B2B5411CF00B4E749 /* MyVoIPApp.app */;
@@ -557,10 +569,12 @@
 				633636B52B545D64002DFE45 /* AgoraService.swift in Sources */,
 				633D248A2B58E35F00DB5C99 /* UIComponents.swift in Sources */,
 				634524F52B555BC700A5E3DF /* String+Extension.swift in Sources */,
+				633D24922B59621300DB5C99 /* VoIPService.swift in Sources */,
 				633636CA2B54B5C9002DFE45 /* UserListViewModel.swift in Sources */,
 				634524EF2B5542F900A5E3DF /* CallViewController.swift in Sources */,
 				63B3CA532B54C873005DF74D /* SplashScreenViewController.swift in Sources */,
 				633636AB2B543034002DFE45 /* CoreDataStack.swift in Sources */,
+				633D24902B595EBC00DB5C99 /* FCMTokenManager.swift in Sources */,
 				633388832B5411CF00B4E749 /* ViewController.swift in Sources */,
 				634524EC2B553FA400A5E3DF /* AgoraInitializer.swift in Sources */,
 				633636AD2B5430F2002DFE45 /* UserService.swift in Sources */,
@@ -979,6 +993,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 633D24802B58B30C00DB5C99 /* XCRemoteSwiftPackageReference "lottie-spm" */;
 			productName = Lottie;
+		};
+		633D248B2B5956F400DB5C99 /* FirebaseInAppMessagingSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6339B9AF2B5422E300ACC97A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseInAppMessagingSwift-Beta";
+		};
+		633D248D2B5956F400DB5C99 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6339B9AF2B5422E300ACC97A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 		63B3CA592B54DE6C005DF74D /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;

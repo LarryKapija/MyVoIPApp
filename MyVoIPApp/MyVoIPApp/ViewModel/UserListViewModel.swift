@@ -27,6 +27,9 @@ class UserListViewModel: ObservableObject {
         self.firebaseService = firebaseService
         self.userService = userService
         self.coreDataStack = coreDataStack
+        
+        // Get the userID of the current user
+        self.userName = self.userService.fetchUser()?.username
 
         // Observe the list of users in real-time from Firebase
         firebaseService.observeUserList(context: coreDataStack.context) { [weak self] usersFromFirebase in
@@ -34,9 +37,6 @@ class UserListViewModel: ObservableObject {
                 self?.filterUsers(usersFromFirebase)
             }
         }
-        
-        // Get the userID of the current user
-        self.userName = self.userService.fetchUser()?.username
     }
     
     func refreshUserList() {
@@ -56,7 +56,11 @@ class UserListViewModel: ObservableObject {
     }
     
     private func filterUsers(_ users: [UserEntity?]) {
-        self.users = users.filter { $0?.username != userName}
+        if users.count == 0 {
+            self.users.removeAll()
+            return
+        }
+        self.users.append(contentsOf: users.filter { $0?.username != userName})
     }
     
     func fetchUser() -> UserEntity? {

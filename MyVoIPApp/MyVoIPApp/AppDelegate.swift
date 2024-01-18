@@ -8,18 +8,46 @@
 import UIKit
 import CoreData
 import FirebaseCore
+import FirebaseMessaging
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        return true
+        
+        UNUserNotificationCenter.current().delegate = self
+        
+         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+         UNUserNotificationCenter.current().requestAuthorization(
+             options: authOptions,
+             completionHandler: {_, _ in })
+         application.registerForRemoteNotifications()
+
+         Messaging.messaging().delegate = self
+         return true
+    }
+    
+    // MARK: Notifications
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        FCMTokenManager.shared.fcmToken = fcmToken
+        print("Firebase Token: \(fcmToken ?? "")")
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        let uuid = UUID() // Generate a unique ID for the call
+        let handle = "User Name" // Get from the notification data
+
+        let voipService = VoIPService()
+        voipService.reportIncomingCall(uuid: uuid, handle: handle)
+
+        completionHandler()
     }
 
     // MARK: UISceneSession Lifecycle

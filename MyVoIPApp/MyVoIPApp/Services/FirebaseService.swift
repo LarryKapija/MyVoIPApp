@@ -37,6 +37,15 @@ class FirebaseService {
             completion(users)
         }
     }
+    
+    func removeUser(username: String, completion: @escaping (Int16?, Error?) -> Void) {
+        
+        let userReference = databaseReference.child(.users).child(username)
+        
+        userReference.removeValue() { error, _ in
+            completion(nil, error)
+        }
+    }
 
     func registerUser(username: String, completion: @escaping (Int16?, Error?) -> Void) {
         

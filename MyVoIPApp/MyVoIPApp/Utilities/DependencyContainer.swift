@@ -54,7 +54,7 @@ class DependencyContainer {
         }
         
         container.register(CallViewModel.self) { r in
-            return CallViewModel(agoraService: r.resolve(AgoraService.self)!)
+            return CallViewModel(agoraService: r.resolve(AgoraService.self)!, firebaseService: r.resolve(FirebaseService.self)!)
         }
         
         return container

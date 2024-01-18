@@ -26,18 +26,6 @@ class UserService {
         }
     }
     
-    func updateUserID(username: String, userid: Int) {
-        let userEntity = UserEntity(context: context)
-        userEntity.username = username
-        userEntity.userid = Int16(userid)
-
-        do {
-            try context.save()
-        } catch {
-            print("Failed to save userid: \(error)")
-        }
-    }
-    
     func fetchUser() -> UserEntity? {
          let request: NSFetchRequest<UserEntity> = UserEntity.fetchRequest()
          do {
